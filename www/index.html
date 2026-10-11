@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#0f766e">
+  <title>DisasterReady</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brandmark">✚</div>
+    <div class="brand"><h1>DisasterReady</h1><p data-i18n="tagline">Your offline safety companion</p></div>
+    <button id="langBtn" class="lang" aria-label="Change language">हिंदी</button>
+  </header>
+
+  <main>
+    <section class="notice">
+      <span class="offline-dot"></span>
+      <div><strong data-i18n="offlineTitle">Offline safety mode</strong><p data-i18n="offlineText">Guides and saved information work without internet.</p></div>
+    </section>
+
+    <nav class="tabs" aria-label="App sections">
+      <button class="tab active" data-page="home" data-i18n="navHome">Home</button>
+      <button class="tab" data-page="kit" data-i18n="navKit">Kit</button>
+      <button class="tab" data-page="plan" data-i18n="navPlan">My Plan</button>
+      <button class="tab" data-page="quiz" data-i18n="navQuiz">Quiz</button>
+    </nav>
+
+    <section id="home" class="page active">
+      <div class="hero">
+        <p class="eyebrow" data-i18n="preparedness">PREPAREDNESS STARTS HERE</p>
+        <h2 data-i18n="heroTitle">Know what to do. Stay prepared.</h2>
+        <p data-i18n="heroText">Choose a hazard to read precautions for before, during, and after it happens.</p>
+      </div>
+      <div class="section-heading"><h2 data-i18n="hazards">Disaster safety guides</h2><span class="small" data-i18n="stored">Stored on device</span></div>
+      <div id="disasterGrid" class="disaster-grid"></div>
+      <div class="warning"><strong data-i18n="important">Important</strong><p data-i18n="liveWarning">This app cannot receive live warnings offline. Follow official instructions whenever available.</p></div>
+    </section>
+
+    <section id="guide" class="page">
+      <button class="back" id="backHome">← <span data-i18n="back">Back</span></button>
+      <div id="guideContent"></div>
+    </section>
+
+    <section id="kit" class="page">
+      <div class="hero compact"><p class="eyebrow" data-i18n="preparedness">PREPAREDNESS STARTS HERE</p><h2 data-i18n="kitTitle">Emergency kit checklist</h2><p data-i18n="kitText">Tick supplies you already have. Your progress is saved on this device.</p></div>
+      <div class="progress-wrap"><div class="progress-label"><span data-i18n="kitProgress">Kit progress</span><strong id="kitCount">0 / 10</strong></div><div class="progress"><span id="kitBar"></span></div></div>
+      <div id="kitList" class="check-list"></div>
+      <button id="resetKit" class="secondary full" data-i18n="resetKit">Reset checklist</button>
+    </section>
+
+    <section id="plan" class="page">
+      <div class="hero compact"><p class="eyebrow" data-i18n="personalPrep">PERSONAL PREPAREDNESS</p><h2 data-i18n="planTitle">My emergency plan</h2><p data-i18n="planText">Save a family meeting point and contacts for quick reference.</p></div>
+      <form id="planForm" class="form-card">
+        <label><span data-i18n="yourName">Your name (optional)</span><input id="personName" maxlength="70" autocomplete="name"></label>
+        <label><span data-i18n="contact1">Emergency contact 1</span><input id="contactOne" maxlength="100" placeholder="Name and phone number"></label>
+        <label><span data-i18n="contact2">Emergency contact 2</span><input id="contactTwo" maxlength="100" placeholder="Name and phone number"></label>
+        <label><span data-i18n="meetingPoint">Family meeting point</span><input id="meeting" maxlength="180"></label>
+        <label><span data-i18n="evacRoute">Evacuation route / safe place</span><textarea id="route" rows="3" maxlength="500"></textarea></label>
+        <label><span data-i18n="medicalNotes">Important needs (optional)</span><textarea id="needs" rows="3" maxlength="500"></textarea></label>
+        <p class="privacy" data-i18n="localPrivacy">Saved only on this device. Avoid entering information you would not want someone with access to your phone to see.</p>
+        <button type="submit" class="primary full" data-i18n="savePlan">Save my plan</button>
+        <p id="saveMessage" class="save-message" role="status"></p>
+      </form>
+    </section>
+
+    <section id="quiz" class="page">
+      <div class="hero compact"><p class="eyebrow" data-i18n="learnCheck">LEARN & CHECK</p><h2 data-i18n="quizTitle">Safety quiz</h2><p data-i18n="quizText">Practice safety knowledge. Answers and best score stay on this device.</p></div>
+      <div class="quiz-card">
+        <div class="quiz-meta"><span id="quizNumber">Question 1</span><span id="quizBest">Best: 0</span></div>
+        <div class="progress"><span id="quizBar"></span></div>
+        <h3 id="questionText"></h3>
+        <div id="answers" class="answers"></div>
+        <p id="feedback" class="feedback" aria-live="polite"></p>
+        <button id="nextQuestion" class="primary full" data-i18n="nextQuestion" disabled>Next question</button>
+        <button id="restartQuiz" class="secondary full hidden" data-i18n="tryAgain">Try again</button>
+      </div>
+    </section>
+  </main>
+  <footer><p data-i18n="footerSafety">Preparedness guide only — not a live alert or emergency dispatch service.</p><p>DisasterReady · Offline edition</p></footer>
+  <script src="app.js"></script>
+</body>
+</html>

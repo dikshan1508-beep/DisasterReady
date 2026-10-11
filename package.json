@@ -1,0 +1,18 @@
+{
+  "name": "disasterready-offline",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Fully offline disaster preparedness app in English and Hindi",
+  "scripts": {
+    "start": "npx cap open android",
+    "sync": "npx cap sync android",
+    "android:add": "npx cap add android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.6.9",
+    "@capacitor/core": "^7.4.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^7.4.3"
+  }
+}
